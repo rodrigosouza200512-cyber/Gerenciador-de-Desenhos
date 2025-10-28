@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.edrawingsviewer.com/eDrawings/js/eDrawings.js"></script>
+</head>
+<body style="margin:0; padding:0;">
+    <div id="edrawings-viewer" style="width:100%; height:100vh;"></div>
+    <script>
+        function loadFile(fileUrl) {
+            var viewer = new EDrawingsViewer();
+            viewer.create("edrawings-viewer");
+            viewer.load(fileUrl);
+        }
+        
+        // Captura o parâmetro da URL
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fileUrl = urlParams.get('file');
+            if (fileUrl) {
+                loadFile(decodeURIComponent(fileUrl));
+            }
+        }
+    </script>
+</body>
+</html>
